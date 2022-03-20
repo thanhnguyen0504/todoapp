@@ -3,7 +3,7 @@ import styled from "styled-components";
 const MySection = styled.section`
   max-width: 40rem;
   max-height: 80rem;
-  margin: 0.25em 1em;
+  margin: 0.25em;
   background-color: ${props => props.theme.sectionbg};
   padding: 1rem;
   border-radius: 12px;

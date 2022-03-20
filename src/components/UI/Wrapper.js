@@ -8,7 +8,8 @@ const DivMaster = styled.div`
   justify-content: center;
   & .appzone {
     width: 800px;
-    max-width: 800px
+    max-width: 800px;
+    padding: 0;
   }
 `;
 
