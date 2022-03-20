@@ -1,12 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { todoActions } from '../../store';
-import Button from "../UI/Button";
 import Li from "../UI/Li";
+import DeleteButton from '../UI/DeleteButton';
 import { useEffect, useState } from "react";
 
 
-const DeleteButton = props => {
-  return <Button onClick={ () => props.onClick(props.id) }>{props.children}</Button>
+const Button = props => {
+  return <DeleteButton onClick={ () => props.onClick(props.id) }>{props.children}</DeleteButton>
 };
 
 const Text = props => {
@@ -37,9 +37,9 @@ const TodoItem = (props) => {
   return (
     <Li className={isFadeIn ? "fadeIn" : ''} active={active}>
       <Text id={id} onClick={onDoneHandler}>{text}</Text>
-      <DeleteButton id={id} onClick={onDeleteHandler}>
+      <Button id={id} onClick={onDeleteHandler}>
         x
-      </DeleteButton>
+      </Button>
     </Li>
   );
   
