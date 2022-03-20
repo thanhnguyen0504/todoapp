@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TodoForm from './components/NewTask/TodoForm';
-import Todos from './components/Todos/Totos';
+import Todos from './components/Todos/Todos';
 import { ThemeProvider } from 'styled-components'
 import {useSelector } from 'react-redux';
 import Button from './components/UI/Button';
@@ -33,13 +33,7 @@ const darkTheme = {
 
 function App() {
 
-  const todos = useSelector(state => 
-    {
-      return state.todo.todos;
-    }
-  );
-
-
+  const {todos, addCount} = useSelector(state => state.todo);
   const [isDark, setIsDark] = useState(false);
 
   const changeThemeHandler = () => {
@@ -52,7 +46,7 @@ function App() {
           <Button onClick={changeThemeHandler}>{isDark ? 'Dark': 'Light'}</Button>
           <TodoForm/>
           <Todos
-            todos={todos}
+            todos={todos} addCount={addCount}
           />
         </Wrapper>
       </ThemeProvider>

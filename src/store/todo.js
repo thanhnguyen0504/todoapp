@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialTodoState = {
-    todos: []
+    todos: [],
+    addCount: 0
 }
 
 const todoSlice = createSlice({
@@ -14,6 +15,8 @@ const todoSlice = createSlice({
                 text: action.payload.text,
                 active: true
               });
+
+              state.addCount++;  
         },
         delete(state, action) {
             state.todos = state.todos.filter(x => x.id !== action.payload.id);

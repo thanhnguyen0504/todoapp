@@ -49,7 +49,7 @@ const Todos = (props) => {
 
   useEffect(() => {
     scrollToBottom();
-  }, [props.todos.length]);
+  }, [props.addCount]);
 
   if (todoFiltered.length > 0) {
     taskList = (
