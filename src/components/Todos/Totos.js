@@ -15,6 +15,7 @@ const Filter = {
 
 const Div = styled.div`
   text-align: center;
+  height: 350px;
 `;
 
 const Action = styled.div`
@@ -24,8 +25,6 @@ const Action = styled.div`
 const ActionButton = props => {
   return <Button isSelected={props.isSelected} onClick={ () => props.onClick(props.action) }>{props.children}</Button>
 };
-
-
 
 const Todos = (props) => {
   let taskList = <h2>No todos found!</h2>;
@@ -54,7 +53,7 @@ const Todos = (props) => {
 
   if (todoFiltered.length > 0) {
     taskList = (
-      <List >
+      <List>
         {todoFiltered.map((todo) => (
           <TodoItem key={todo.id} id={todo.id} active={todo.active} text={todo.text}/>
         ))}
