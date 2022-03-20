@@ -1,11 +1,10 @@
 import Section from '../UI/Section';
-import TodoItem from './TodoItem';
 import styled from "styled-components";
-import { useState, useRef, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { todoActions } from '../../store';
 import Button from '../UI/Button';
-import List from '../UI/List';
+import TodoList from './TodoList';
 
 const Filter = {
   ALL: 1,
@@ -27,9 +26,8 @@ const ActionButton = props => {
 };
 
 const Todos = (props) => {
-  let taskList = <h2>No todos found!</h2>;
-
-  const taskListRef = useRef(null);
+  const noTodos = <h2>No todos found!</h2>;
+  const { addCount } = useSelector(state => state.todo);
   const dispatch = useDispatch();
 
   const [filter, setFilter] = useState(Filter.ALL);
@@ -47,21 +45,6 @@ const Todos = (props) => {
       break;
   }
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [props.addCount]);
-
-  if (todoFiltered.length > 0) {
-    taskList = (
-      <List>
-        {todoFiltered.map((todo) => (
-          <TodoItem key={todo.id} id={todo.id} active={todo.active} text={todo.text}/>
-        ))}
-        <div ref={taskListRef}/>
-      </List>
-    );
-  }
-
   const onFilterHandler = (action) => {
     setFilter(action);
   };
@@ -70,13 +53,9 @@ const Todos = (props) => {
     dispatch(todoActions.toggleAll());
   };
 
-  const scrollToBottom = () => {
-    taskListRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
     <Section>
-      <Div>{taskList}</Div>
+      <Div>{todoFiltered.length > 0 ? <TodoList todoFiltered={todoFiltered} addCount={addCount}></TodoList> : noTodos}</Div>
       <Action>
         <Button onClick={onToggleAllHandler}>Toggle All</Button>
       </Action>

@@ -4,6 +4,7 @@ test('should return the initial state', () => {
   expect(reducer(undefined, {})).toEqual(
     {
         todos: [],
+        addCount: 0
     }
   )
 })

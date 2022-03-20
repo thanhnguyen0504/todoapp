@@ -33,7 +33,7 @@ const darkTheme = {
 
 function App() {
 
-  const {todos, addCount} = useSelector(state => state.todo);
+  const {todos} = useSelector(state => state.todo);
   const [isDark, setIsDark] = useState(false);
 
   const changeThemeHandler = () => {
@@ -46,7 +46,7 @@ function App() {
           <Button onClick={changeThemeHandler}>{isDark ? 'Dark': 'Light'}</Button>
           <TodoForm/>
           <Todos
-            todos={todos} addCount={addCount}
+            todos={todos}
           />
         </Wrapper>
       </ThemeProvider>
