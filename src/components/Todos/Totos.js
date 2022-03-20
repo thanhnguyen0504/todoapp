@@ -1,7 +1,7 @@
 import Section from '../UI/Section';
 import TodoItem from './TodoItem';
 import styled from "styled-components";
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { todoActions } from '../../store';
 import Button from '../UI/Button';
@@ -30,6 +30,7 @@ const ActionButton = props => {
 const Todos = (props) => {
   let taskList = <h2>No todos found!</h2>;
 
+  const taskListRef = useRef(null);
   const dispatch = useDispatch();
 
   const [filter, setFilter] = useState(Filter.ALL);
@@ -47,12 +48,17 @@ const Todos = (props) => {
       break;
   }
 
+  useEffect(() => {
+    scrollToBottom();
+  }, [props.todos.length]);
+
   if (todoFiltered.length > 0) {
     taskList = (
-      <List>
+      <List >
         {todoFiltered.map((todo) => (
           <TodoItem key={todo.id} id={todo.id} active={todo.active} text={todo.text}/>
         ))}
+        <div ref={taskListRef}/>
       </List>
     );
   }
@@ -64,6 +70,10 @@ const Todos = (props) => {
   const onToggleAllHandler = () => {
     dispatch(todoActions.toggleAll());
   };
+
+  const scrollToBottom = () => {
+    taskListRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <Section>

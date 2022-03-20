@@ -21,23 +21,40 @@ const Li = styled.li`
     animation: bump 300ms ease-out;
   }
 
+  &.fadeIn {
+    animation: fadeIn 600ms;
+  }
+
   @keyframes bump {
-  0% {
-    transform: scale(1);
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(0.9);
+    }
+    30% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
   }
-  10% {
-    transform: scale(0.9);
+
+  @keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
   }
-  30% {
-    transform: scale(1.1);
+
+  @keyframes fadeOut {
+    from {opacity:1;}
+    to {opacity:0;}
   }
-  50% {
-    transform: scale(1.15);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+
 `;
+
+
 
 export default Li;

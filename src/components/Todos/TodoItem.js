@@ -16,10 +16,10 @@ const Text = props => {
 const TodoItem = (props) => {
   const {text, active, id} = props;
   const dispatch = useDispatch();
-  const [isBump, setIsBump] = useState(false);
+  const [isFadeIn, setIsFadeIn] = useState(false);
 
   const onDeleteHandler = (id) => {
-    setIsBump(true);
+    setIsFadeIn(true);
     dispatch(todoActions.delete({id}));
   };
 
@@ -28,17 +28,17 @@ const TodoItem = (props) => {
   };
 
   useEffect(() => {
-    setIsBump(true);
+    setIsFadeIn(true);
     setTimeout(() => {
-      setIsBump(false);
+      setIsFadeIn(false);
     }, 300)
   }, [active]);
 
   return (
-    <Li className={isBump ? "bump" : ''} active={active}>
+    <Li className={isFadeIn ? "fadeIn" : ''} active={active}>
       <Text id={id} onClick={onDoneHandler}>{text}</Text>
       <DeleteButton id={id} onClick={onDeleteHandler}>
-        X
+        x
       </DeleteButton>
     </Li>
   );
