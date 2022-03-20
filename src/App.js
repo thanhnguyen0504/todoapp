@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NewTodo from './components/NewTask/NewTodo';
+import TodoForm from './components/NewTask/TodoForm';
 import Todos from './components/Todos/Totos';
 import { ThemeProvider } from 'styled-components'
 import {useSelector } from 'react-redux';
@@ -48,7 +48,7 @@ function App() {
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <Wrapper>  
           <Button onClick={changeThemeHandler}>{isDark ? 'Dark': 'Light'}</Button>
-          <NewTodo/>
+          <TodoForm/>
           <Todos
             todos={todos}
           />

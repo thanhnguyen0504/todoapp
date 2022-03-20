@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useDispatch } from 'react-redux';
 import { todoActions } from '../../store';
 import Input from '../UI/Input';
+import Section from '../UI/Section';
 
 const Form = styled.form`
   display: flex;
@@ -23,7 +24,7 @@ const Form = styled.form`
   }
 `; 
 
-const TaskForm = (props) => {
+const TaskForm = () => {
   
   const [text, setText] = useState("");
   const dispatch = useDispatch();
@@ -43,9 +44,11 @@ const TaskForm = (props) => {
   };
 
   return (
-    <Form onSubmit={submitHandler}>
-      <Input type='text' value={text} onChange={textchangeHandler}/>
-    </Form>
+    <Section>
+      <Form onSubmit={submitHandler}>
+        <Input type='text' value={text} onChange={textchangeHandler}/>
+      </Form>
+    </Section>
   );
 };
 

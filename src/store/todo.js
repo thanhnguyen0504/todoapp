@@ -9,7 +9,6 @@ const todoSlice = createSlice({
     initialState: initialTodoState,
     reducers: {
         add(state, action) {
-            debugger;
             state.todos.push({
                 id: Math.random().toString(),
                 text: action.payload.text,
