@@ -9,6 +9,18 @@ const MySection = styled.section`
   border-radius: 12px;
   // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   box-shadow: 0 2px 8px ${props => props.theme.sectionShadow};
+  animation: slide-down 300ms ease-out forwards;
+
+  @keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-3rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
   
 `;
 

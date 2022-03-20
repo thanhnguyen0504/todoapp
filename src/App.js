@@ -15,6 +15,7 @@ const lightTheme = {
   sectionShadow: '#ebdfdf',
   buttonbg: '#f5eded',
   buttonSelectedBg: '#8197e3',
+  buttonHover: '#8197e3',
 };
 
 const darkTheme = {
@@ -25,6 +26,7 @@ const darkTheme = {
   sectionShadow: '#3d3737',
   buttonbg: '#3d3636',
   buttonSelectedBg: '#8197e3',
+  buttonHover: '#8197e3',
 };
 
 

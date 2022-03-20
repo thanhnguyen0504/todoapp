@@ -15,7 +15,6 @@ const Form = styled.form`
     border: none;
     border-bottom: 3px solid #ccc;
     flex: 1;
-    margin-right: 2rem;
 
     &:focus {
       outline: none;

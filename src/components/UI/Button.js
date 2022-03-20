@@ -10,6 +10,9 @@ const Button = styled.button`
   padding: 0.25em 0.5em;
   border-radius: 3px;
   background-color: ${props => props.isSelected === true ? props.theme.buttonSelectedBg : props.theme.buttonbg} ;
+  &:hover {
+    background-color: ${props => props.theme.buttonHover}
+  }
 `;
 
 export default Button;
